@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sebastian barber</title>
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/style.css')}}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="logo-container">
+            <img src="/static/images/WhatsApp Image 2025-02-20 at 14.38.03 (1).jpeg" alt="Logo"
+                class="logo-img">
+            <div class="logo-text">Sebastian Barber</div>
+        </div>
+        <div class="cart">
+            <i class="fas fa-shopping-cart cart-icon"></i>
+            <span class="cart-badge">3</span>
+        </div>
+    </nav>
+    <section class="first-section" id="home">
+
+        <div class="conteudo-principal">
+            <h1>venha ficar na regua</h1>
+            <h2>o melhor do momento!!!</h2>
+            <div class="btn">
+                <button onclick="location.href='#cardapio'">conheça nossos planos</button>
+            </div>
+        </div>
+    </section>
+
+
+    <div class="planos-btn-container">
+        <button class="open-planos-btn">💈 Assinar Planos</button>
+    </div>
+
+    <div class="planos-aba" id="planosAba">
+        <div class="planos-header">
+            <h2>Escolha seu Plano</h2>
+            <button class="close-planos-btn">&times;</button>
+        </div>
+        <div class="planos-content">
+            <div class="plano">
+                <h3>Plano mensal corte</h3>
+                <p>cortes de cabelo ilimitado durante 1 mes</p>
+                <p><strong>R$ 75,00</strong> / mês</p>
+                <form action="{{ url_for('pagamentos') }}" method="POST">
+                    <input type="hidden" name="titulo" value="corte">
+                    <input type="hidden" name="valor" value="75.00">
+                    <input type="hidden" name="id" value=1>
+                    <button type="submit" class="assinar-btn">assinar</button>
+                </form>
+            </div>
+            <div class="plano">
+                <h3>Plano mensal corte e barba</h3>
+                <p>cortes e barba ilimitadas durante 1 mes</p>
+                <p><strong>R$ 130,00</strong> / mês</p>
+                <form action="{{ url_for('pagamentos') }}" method="POST">
+                    <input type="hidden" name="titulo" value="corte e barba">
+                    <input type="hidden" name="valor" value="130.00">
+                    <input type="hidden" name="id" value=2>
+
+                    <button type="submit" class="assinar-btn">assinar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <section class="cardapio" id="cardapio">
+        <h2>Catalogo</h2>
+
+        <div class="itens-cardapio">
+
+            <div class="bisteca">
+                <img src="/static/images/WhatsApp Image 2025-02-20 at 14.38.02 (1).jpeg" alt="sdfsdfsd">
+                <div class="info">
+                    <h3>plano mensal corte</h3>
+                    <p class="corteh1">cortes de cabelo ilimitado durante 1 mes</p>
+                    <h4>valor <span>R$75,00</span></h4>
+                    <form action="{{ url_for('pagamentos') }}" method="POST">
+                        <input type="hidden" name="titulo" value="corte">
+                        <input type="hidden" name="valor" value="75.00">
+                        <input type="hidden" name="id" value=1>
+                        <button type="submit" class="pedir">assinar</button>
+                    </form>
+                </div>
+            </div>
+            <div class="bisteca">
+                <img src="/static/images/WhatsApp Image 2025-02-20 at 14.38.02.jpeg" alt="sdfsdfsd">
+                <div class="info">
+                    <h3>plano mensal corte e barba </h3>
+                    <p class="corteh1">cortes e barba ilimitadas durante 1 mes</p>
+                    <h4>valor <span>R$130,00</span></h4>
+                    <form action="{{ url_for('pagamentos') }}" method="POST">
+                        <input type="hidden" name="titulo" value="corte e barba">
+                        <input type="hidden" name="valor" value="130.00">
+                        <input type="hidden" name="id" value=2>
+                        <button type="submit" class="pedir">assinar</button>
+                    </form>
+                </div>
+            </div>
+
+    </section>
+
+    <a href="https://wa.me/5581994582239" class="whatsapp-button" target="_blank" title="Fale conosco pelo WhatsApp">
+        <img src="https://cdn-icons-png.flaticon.com/512/124/124034.png" alt="WhatsApp" />
+    </a>
+
+    <section class="contatos" id="contatos">
+        <h3>Contatos</h3>
+        <div class="contatos-secao">
+            <div>
+                <i class="fas fa-phone"></i>
+                <span>(81) 99458-2239</span>
+            </div>
+            <div>
+                <i class="fab fa-instagram"></i>
+                <span>sebastian barber</span>
+            </div>
+    
+        </div>
+    </section>
+    <footer>
+        <h4>Desenvolvido por -> gilson o brabo</h4>
+    </footer>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const openBtn = document.querySelector(".open-planos-btn");
+            const closeBtn = document.querySelector(".close-planos-btn");
+            const planosAba = document.getElementById("planosAba");
+
+            openBtn.addEventListener("click", () => {
+                planosAba.classList.add("ativa");
+            });
+
+            closeBtn.addEventListener("click", () => {
+                planosAba.classList.remove("ativa");
+            });
+
+            document.addEventListener("click", (event) => {
+                if (!planosAba.contains(event.target) && !openBtn.contains(event.target)) {
+                    planosAba.classList.remove("ativa");
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
