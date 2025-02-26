@@ -1,5 +1,4 @@
 import mercadopago
-import sqlite3
 from datetime import datetime, timedelta
 import uuid
 from dotenv import load_dotenv
@@ -22,8 +21,6 @@ def gerarpagamento(nome,numero,valor,titulo,id):
         titulo = "ESPERTINHO VC"
     external_reference = str(uuid.uuid4())
     tt = "plano mensal cabelo"
-    conn=sqlite3.connect("pagamentos.db")
-    cur = conn.cursor()
 
     #sdk = mercadopago.SDK("TEST-7006907603533943-021514-d78959114578f0e324a55082a506b45f-210051360")#CLODOALDO
     #sdk = mercadopago.SDK("TEST-8397555859715214-022022-44cea229d8798f47f1c7c38bfa5968a1-441212954")#credencias testeSEBASTIAN
@@ -67,14 +64,4 @@ def gerarpagamento(nome,numero,valor,titulo,id):
     print(payment_payer)
     data_compra = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
     #cur.execute("INSERT INTO pagamentosbarbearia (txid, status, email, data_compra, plano) VALUES(?,?,?,?,?)", (external_reference, "pendente", email, data_compra,tt))
-    cur.execute('select * from pagamentosbarbearia where uid=?',(numero,))
-    j=cur.fetchone()
-    if j:
-        cur.execute('UPDATE pagamentosbarbearia SET txid = ?, status = ? WHERE uid = ?', (external_reference, 'pendente', numero))
-        conn.commit()
-    
-    else: 
-        
-        cur.execute('insert into pagamentosbarbearia(uid,txid,status,nome)values(?,?,?,?)',(numero,external_reference,'pendente',nome))
-        conn.commit()
     return linkpagar
