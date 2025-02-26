@@ -91,5 +91,3 @@ def webhook():
         return render_template("cok.html")"""
     
     return jsonify({"message": "Webhook processado com sucesso"}), 200  # Retorna sucesso
-
-app.run()
