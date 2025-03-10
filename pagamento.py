@@ -40,9 +40,9 @@ def gerarpagamento(nome,numero,valor,titulo,id):
             }
         },
         "back_urls": {
-            "success": "https://e2b1-160-20-194-29.ngrok-free.app/compra_certa",
-            "failure": "https://e2b1-160-20-194-29.ngrok-free.app/compra_errada",
-            "pending": "https://e2b1-160-20-194-29.ngrok-free.app/compra_errada",
+            "success": "https://www.sebastianbarber.shop/compra_certa",
+            "failure": "https://www.sebastianbarber.shop/compra_errada",
+            "pending": "https://www.sebastianbarber.shop/compra_errada",
         },
         "auto_return": "all",
         "external_reference": external_reference,  # Substitua pelo valor adequado
