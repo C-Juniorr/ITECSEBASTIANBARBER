@@ -8,7 +8,7 @@ load_dotenv()
 sdkk = os.getenv("SDK2")
 email = "USERTESTEEMAIL222222.COM"
 def gerarpagamento(nome,numero,valor,titulo,id):
-    #valor = 1.0
+    valor = 1.0
     id = int(id)
     if id == 1:
         valor = 75.0
