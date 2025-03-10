@@ -12,9 +12,11 @@ def gerarpagamento(nome,numero,valor,titulo,id):
     id = int(id)
     if id == 1:
         valor = 75
+        valor = 0.01
         titulo = "Plano Mensal Corte"
     elif id == 2:
         valor = 130
+        valor = 0.01
         titulo = "Plano Mensal Corte é Barba"
     else:
         valor = 10000
